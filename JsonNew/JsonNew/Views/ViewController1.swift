@@ -12,11 +12,18 @@ import UIKit
 class ViewController1: UIViewController {
 
     var indexP = 0
+    
+    
+//  lazy  var  tx:  UITextView() {
+//       tx.isScrollEnabled = true
+//       tx.isUserInteractionEnabled = true
+//       tx.frame = CGRect(x: 10, y: 10, width: self.view.frame.width, height: 100)
+//        tx.text =}
 
     lazy var progImageView2: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         
         imageView.image = UIImage(named: "PokeImg")
         return imageView
@@ -27,9 +34,10 @@ class ViewController1: UIViewController {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = label.font.withSize(12)
+        label.textAlignment = .center
+        label.font = label.font.withSize(20)
         label.setContentHuggingPriority(.required, for: .vertical)
-        label.setContentCompressionResistancePriority(.required, for: .vertical)
+//        label.setContentCompressionResistancePriority(.required, for: .vertical)
         //label.text = "Pokemon_Name"
         //label.backgroundColor = .systemOrange
         return label
@@ -39,7 +47,8 @@ class ViewController1: UIViewController {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = label.font.withSize(12)
+        label.textAlignment = .center
+        label.font = label.font.withSize(15)
         label.setContentHuggingPriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.text = "Pokemon_type"
@@ -51,8 +60,9 @@ class ViewController1: UIViewController {
     lazy var Abilities: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = label.font.withSize(12)
+        label.font = label.font.withSize(15)
         label.setContentHuggingPriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.text = "Pokemon_Abilities"
@@ -64,7 +74,8 @@ class ViewController1: UIViewController {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = label.font.withSize(12)
+        label.textAlignment = .center
+        label.font = label.font.withSize(15)
         label.setContentHuggingPriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.text = "Pokemon_Moves"
@@ -77,95 +88,14 @@ class ViewController1: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemTeal
-        self.setUpUI()
+        
         self.SetLabels()
         self.setImages()
+        self.setUpUI()
         // Do any additional setup after loading the view.
     }
 
-    private func setUpUI() {
-        
-        
-    
 
-
-//        let hStack = UIStackView(axis: .horizontal, spacing: 5 , distribution: .fillProportionally)
-//        let vStackName = UIStackView(axis: .vertical, spacing: 5 , distribution: .fillProportionally)
-////
-////
-//        vStackName.addArrangedSubview(self.Name)
-//        vStackName.addArrangedSubview(self.Types)
-//        vStackName.addArrangedSubview(self.progImageView2)
-//        vStackName.addArrangedSubview(self.Abilities)
-//        vStackName.addArrangedSubview(self.MovesList)
-//
-//        hStack.addArrangedSubview(vStackName)
-//        hStack.bindToSuperView()
-        
-        
-        
-//        let hStack = UIStackView(axis: .vertical , spacing: 8, distribution: .fill)
-//        let vStack = UIStackView(axis: .vertical , spacing: 8, distribution: .fill)
-//
-//        vStack.addSubview(self.Name)
-//        vStack.addArrangedSubview(self.Types)
-//        vStack.addArrangedSubview(self.progImageView2)
-//        vStack.addArrangedSubview(self.Abilities)
-//        vStack.addArrangedSubview(self.MovesList)
-//
-//
-//
-//        hStack.addArrangedSubview(vStack)
-//
-//        self.contentView.addSubview(hStack)
-//        vStack.bindToSuperView()
-
-
-        self.view.addSubview(self.Name)
-        self.view.addSubview(self.progImageView2)
-        self.view.addSubview(self.Types)
-        self.view.addSubview(self.Abilities)
-        self.view.addSubview(self.MovesList)
-
-
-        self.Name.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
-
-
-        self.Name.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-
-        self.progImageView2.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 80).isActive = true
-
-        self.progImageView2.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        self.progImageView2.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        self.progImageView2.widthAnchor.constraint(equalToConstant: 300).isActive = true
-
-        self.Types.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32).isActive = true
-
-        self.Types.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-
-        self.Abilities.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 56).isActive = true
-
-        self.Abilities.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-
-        self.MovesList.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        self.MovesList.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor, constant: 200).isActive = true
-        self.MovesList.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
-
-        self.MovesList.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
-        self.MovesList.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-
-
-
-
-
-        
-        
-    
-
-        
-        
-        
-    }
     
 //    func setLabels(){
 //
@@ -255,6 +185,142 @@ class ViewController1: UIViewController {
         
         
     }
+    
+    
+    
+    
+    private func setUpUI() {
+        
+        
+        let elementsStack = UIStackView(frame: .zero)
+                elementsStack.translatesAutoresizingMaskIntoConstraints = false
+                elementsStack.spacing = 5
+                elementsStack.axis = .vertical
+                elementsStack.distribution = .fillEqually
+        
+        let ImageStack = UIStackView(frame: .zero)
+                ImageStack.translatesAutoresizingMaskIntoConstraints = false
+                ImageStack.spacing = 5
+                ImageStack.axis = .vertical
+                ImageStack.distribution = .fillEqually
+        
+        ImageStack.addArrangedSubview(self.Name)
+        ImageStack.addArrangedSubview(self.progImageView2)
+        
+        
+        let vStack = UIStackView(frame: .zero)
+                vStack.translatesAutoresizingMaskIntoConstraints = false
+                vStack.spacing = 5
+                vStack.axis = .vertical
+                vStack.distribution = .fillEqually
+        
+        vStack.addArrangedSubview(self.Types)
+        vStack.addArrangedSubview(self.Abilities)
+        vStack.addArrangedSubview(self.MovesList)
+
+        
+        let hStack = UIStackView(frame: .zero)
+        hStack.translatesAutoresizingMaskIntoConstraints = false
+        hStack.spacing = 5
+        hStack.axis = .horizontal
+       
+        
+        
+        elementsStack.addArrangedSubview(ImageStack)
+        elementsStack.addArrangedSubview(vStack)
+        
+        hStack.addArrangedSubview(elementsStack)
+        
+        self.view.addSubview(hStack)
+        hStack.bindToSuperView()
+        
+
+//vStack.addArrangedSubview(self.Types)
+//vStack.addArrangedSubview(self.Abilities)
+//vStack.addArrangedSubview(self.MovesList)
+        //let ElementStack = UIStackView(axis: .vertical, spacing: 5 , distribution: .fillProportionally)
+//        let vStackName = UIStackView(axis: .vertical, spacing: 5 , distribution: .fillProportionally)
+////
+////
+//        vStackName.addArrangedSubview(self.Name)
+//        vStackName.addArrangedSubview(self.Types)
+//        vStackName.addArrangedSubview(self.progImageView2)
+//        vStackName.addArrangedSubview(self.Abilities)
+//        vStackName.addArrangedSubview(self.MovesList)
+//
+//        hStack.addArrangedSubview(vStackName)
+//        hStack.bindToSuperView()
+        
+        
+        
+//        let hStack = UIStackView(axis: .horizontal , spacing: 8, distribution: .fill)
+//        let vStack = UIStackView(axis: .vertical , spacing: 8, distribution: .fill)
+//
+//        vStack.addSubview(self.Name)
+//        vStack.addArrangedSubview(self.Types)
+//        vStack.addArrangedSubview(self.progImageView2)
+//        vStack.addArrangedSubview(self.Abilities)
+//        vStack.addArrangedSubview(self.MovesList)
+//
+//
+//
+//        hStack.addArrangedSubview(vStack)
+//
+//
+//        hStack.bindToSuperView()
+
+
+//        self.view.addSubview(self.Name)
+//        self.view.addSubview(self.progImageView2)
+//        self.view.addSubview(self.Types)
+//        self.view.addSubview(self.Abilities)
+//        self.view.addSubview(self.MovesList)
+//
+//
+//        self.Name.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
+//
+//
+//        self.Name.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//
+//        self.progImageView2.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 80).isActive = true
+//
+//        self.progImageView2.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//        self.progImageView2.heightAnchor.constraint(equalToConstant: 300).isActive = true
+//        self.progImageView2.widthAnchor.constraint(equalToConstant: 300).isActive = true
+//
+//        self.Types.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32).isActive = true
+//
+//        self.Types.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//
+//        self.Abilities.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 56).isActive = true
+//
+//        self.Abilities.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//
+//        self.MovesList.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//        self.MovesList.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor, constant: 200).isActive = true
+//        self.MovesList.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
+//
+//        self.MovesList.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
+//        self.MovesList.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+
+
+
+
+
+        
+        
+    
+
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
     
     
     
